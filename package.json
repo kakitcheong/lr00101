@@ -1,0 +1,10 @@
+{
+  "name": "luis-reigadas-web-template",
+  "version": "0.0.1",
+  "description": "A static website template for Luis Reigadas",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "kc-slg"
+}
