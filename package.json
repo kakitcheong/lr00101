@@ -4,11 +4,12 @@
   "description": "A static website template for Luis Reigadas",
   "repository": {
     "type": "git",
-    "url": "?.git"
+    "url": "https://github.com/kakitcheong/lr00101.git"
   },
   "author": "kc-slg",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-util": "^3.0.8"
   }
 }
