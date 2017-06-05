@@ -56,7 +56,7 @@ $font-crimson: (
 	),
 	sm: (
 		font-size: $ms-025,
-		line-height: $ms-025
+		line-height: $ms-025 * 1.4
 	),
 	base: (
 		font-size: $ms0,
@@ -108,7 +108,7 @@ $font-oxygen: (
 	),
 	md: (
 		font-size: $ms05,
-		line-height: $ms05 * 0.9
+		line-height: $ms05 * 1.1
 	),
 	md-lg: (
 		font-size: $ms1,
@@ -222,6 +222,9 @@ h2{
 			@include font-scale(sm-md, $font-oxygen);
 		}
 	}
+	&__md{
+		@include font-scale(md);
+	}
 	&__lg{
 		@include font-scale(md-lg);
 		@include breakpoint(medium){
@@ -239,10 +242,24 @@ h2{
 	@include breakpoint(large){
 		@include font-scale(base);
 	}
-	
 	&--reversed{
 		@extend .paragraph;
 		color: palette(grey, x-light);
+		&--sm{
+			@extend .paragraph--reversed;
+			@include font-scale(sm);
+		}
+	}
+	&--md{
+		@include font-scale(md, $font-oxygen);
+	}
+}
+
+.meta{
+	&--default{
+		@include font-scale(xs, $font-oxygen);
+		text-transform: uppercase;
+		letter-spacing: rem-calc(1px);
 	}
 }
 
@@ -269,4 +286,7 @@ h2{
 		@extend .shift;
 		top: rem-calc(-8px);
 	}	
+}
+.high-light{
+	color: palette(brand);
 }

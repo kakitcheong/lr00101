@@ -36,6 +36,7 @@ $offcanvas-full-screen-side: left;
 	}
 	&__content{
 		@include scut-fixed(0 0 n 0);
+		border-bottom: 1px solid palette(grey, light);
 	}
 	&__menu{
 		@extend %offcanvas-full-screen-menu;

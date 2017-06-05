@@ -3,29 +3,46 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .team-overview{
-	@include scut-margin(n n spacer(lg) n);
+	@include scut-margin(spacer(md) n);
+	@include breakpoint(large){
+		@include scut-margin(spacer(lg) n);
+	}
 	&__profile{
-		@extend .large-offset-3, .large-6, .columns;
+		@extend .medium-6, .large-offset-3, .large-6, .columns;
+		@include hide-for-only(small);
+	}
+	.section-opening{
+		@include hide-for-only(medium);
 	}
 }
 
 .profile{
 	@include scut-padding(n n spacer(lg) n);
 	&__img{
-		@extend .large-4, .columns, %bg__img;
+		@extend .medium-12, .large-4, .columns, %bg__img;
+		@include breakpoint(medium){
+			height: rem-calc(180px);
+		}
 		@include breakpoint(large){
 			height: rem-calc(260px);
 		}
 		&--shift{
 			@extend .profile__img;
-			@include scut-margin(spacer(lg)*-1 n n n);	
+			@include breakpoint(large){
+				@include scut-margin(spacer(lg)*-1 n n n);		
+			}
 		}
 	}
 	&__content{
-		@extend .large-8, .columns;
+		@extend .medium-12, .large-8, .columns;
 	}
 	&__title-wrap{
-		@include scut-margin(n n spacer(md) n);
+		@include breakpoint(medium){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+		@include breakpoint(large){
+			@include scut-margin(n n spacer(md) n);	
+		}
 	}
 	&__link{
 		@include font-scale(xs, $font-oxygen);

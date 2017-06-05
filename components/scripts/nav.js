@@ -34,6 +34,5 @@ var safeZone = 20;
 
 $window.on('scroll', function(){
 	var scrollTop = $window.scrollTop();
-
-	$('.mobile-nav__content, .header-nav--mobile__toggle').toggleClass('in-body', scrollTop > safeZone);
+	$('#mobile-nav, #mobile-nav__toggle').toggleClass('in-body', scrollTop > safeZone);
 });

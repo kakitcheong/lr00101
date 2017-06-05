@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .section-opening{
-	@extend .small-12, .large-3, .columns;
+	@extend .small-12, .medium-4, .large-3, .columns;
 	@include breakpoint(medium down){
 		padding-left: $padding__mobile--lr !important;	
 	}
@@ -12,6 +12,7 @@
 		@include scut-margin(n n 0 n);	
 	}
 	&__title-secondary{
+		@include scut-margin(n n spacer(xxs) n);
 		@include breakpoint(large){
 			@include scut-margin(n n spacer(xs) n);
 		}

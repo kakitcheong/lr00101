@@ -1,0 +1,43 @@
+////////////////////////////////////////////////////////////////////////////////
+//  card - simple                                                   	      //
+////////////////////////////////////////////////////////////////////////////////
+
+.simple-card{
+	&__control{
+		@include scut-selected(true){
+			& + .simple-card__wrap{
+				background-color: palette(brand);
+			}
+		}
+		@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
+	}
+	&__wrap{
+		position: relative;
+		min-height: rem-calc(180px);
+		background-color: $white;
+		@include scut-padding(spacer(md)*0.95 spacer(md));
+		border: 1px solid palette(grey, dark);
+		@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
+		@include scut-selected(true){
+			cursor: pointer;
+			background-color: palette(brand);
+			color: $white;
+		}
+		@include breakpoint(medium){
+			min-height: rem-calc(260px);	
+		}
+	}
+	&__link{
+		//display: absolute;
+		@include scut-absolute(n n spacer(md)*0.95 spacer(md));
+		@include font-scale(xs, $font-oxygen);
+		font-weight: 700;
+		text-transform: uppercase;
+		color: palette(grey);
+		@include scut-padding(n n spcer(xs) n);
+		border-bottom: 1px solid palette(grey, dark);
+		@include scut-selected(true){
+			color: $white;
+		}
+	}
+}

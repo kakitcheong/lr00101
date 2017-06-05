@@ -2,7 +2,7 @@ $(document).foundation();
 
 
 ////////////////////////////////////////////////////////////////////////////////
-//  home page carousel                                                    	  //
+//  carousel home                                                     	      //
 ////////////////////////////////////////////////////////////////////////////////
 $('.carousel').on('init', function(){
 	$('.carousel__display > .display').html($('.carousel__content.init').find('.content__wrap').html());
@@ -26,8 +26,8 @@ $('.carousel').on('afterChange', function(event, slick, currentSlide, nextSlide)
 	$('.carousel__display > .display').fadeOut(400, function(){
 		$('.carousel__display > .display').html(currentSlideData.find('.content__wrap').html()).fadeIn(800);
 	});
-	$('.section-opening__title h2').fadeOut(600, function(){
-		$('.section-opening__title h2').html($('li[data-slide-position="' + currentSlide + '"]').html()).fadeIn(1200);	
+	$('#dynamic-title').fadeOut(600, function(){
+		$(this).html($('li[data-slide-position="' + currentSlide + '"]').html()).fadeIn(1200);	
 	})
 });
 
@@ -117,6 +117,5 @@ var safeZone = 20;
 
 $window.on('scroll', function(){
 	var scrollTop = $window.scrollTop();
-
-	$('.mobile-nav__content, .header-nav--mobile__toggle').toggleClass('in-body', scrollTop > safeZone);
+	$('#mobile-nav, #mobile-nav__toggle').toggleClass('in-body', scrollTop > safeZone);
 });

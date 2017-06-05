@@ -4,4 +4,29 @@
 
 .cover{
 	@extend .small-12, .large-9, .columns;
+	&__img{
+		@extend %bg__img;
+		padding-top: 62.5%;
+		@include breakpoint(large down){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+		@include breakpoint(medium){
+			padding-top: 38%;	
+		}
+		@include breakpoint(large){
+			padding-top: 42%;	
+		}
+	}
+	&__txt{
+		@extend .small-12, .medium-10, .large-push-2, .large-9, .xlarge-push-3, .xlarge-8;
+		@include breakpoint(medium down){
+			padding-left: $padding__mobile--lr !important;
+			padding-right: $padding__mobile--lr !important;	
+		}
+		@include breakpoint(large){
+			background-color: palette(grey, light);
+			@include scut-padding(spacer(sm) spacer(md));
+			@include scut-margin(spacer(xlg)*-1 n n n);	
+		}	
+	}
 }

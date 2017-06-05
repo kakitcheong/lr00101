@@ -5,19 +5,29 @@
 .footer{
 	@extend .expanded, .row;
 	background-color: palette(grey);
+	@include breakpoint(small only){
+		@include scut-padding(spacer(xs) n);	
+	}
 	@include scut-padding(spacer(lg) n);
 	&__inner{
 		@extend .row;
 	}
 	&__col{
 		@extend .small-12, .medium-6, .large-3, .columns;
+		@include breakpoint(small only){
+			@include scut-padding(spacer(xxs) n spacer(xs) n);
+			border-bottom: $el__border;
+		}
 		&--omega{
-			@extend .footer__col, .large-offset-3;
+			@extend .footer__col, .large-offset-3, .end;
+			border-bottom: none;
 		}
 	}
 	&__text{
 		&--omega{
-			@extend .text-right;
+			@include breakpoint(large){
+				float: right;
+			}
 		}
 	}
 }

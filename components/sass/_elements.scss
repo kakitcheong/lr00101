@@ -33,7 +33,7 @@ last update: 31/05/2017
 	@include scut-margin(spacer(md) n);
 	//background-color: $white;
 	@include breakpoint(large){
-		@include scut-margin(spacer(lg) n);
+		@include scut-margin(spacer(xlg) n);
 	}
 }
 
@@ -46,12 +46,56 @@ last update: 31/05/2017
 	&__single{
 		@extend .row, .column;
 	}
+	&__full{
+		@extend .row, .expanded;
+	}
 }
 
 .parallax-wrap{ 
 	// min-height: 2000px; // dev
 	@extend %bg__img, %parallax-window;
 }
+
+.not-home{
+	@include breakpoint(medium down){
+		@include scut-padding(spacer(lg) n n n);	
+	}
+}
+
+/*** 
+layout variation one 
+
+component description:
+image span 4 columns on left with text over 4 column on right with 1 column offset
+***/
+.layout-one{
+	&__wrap{
+		@extend .row, .small-collapse, .large-uncollapse;
+		//@include scut-margin(spacer(md) n);
+	}
+	&__img{
+		@extend %bg__img, .small-12, .large-4, .large-offset-1, .columns;
+		padding-top: 22.5%;
+		@include breakpoint(large down){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+	}
+	&__txt{
+		@extend .small-12, .large-4, .large-offset-2, .end, .columns;
+	}
+}
+
+.section-title{
+	@extend .small-12, .large-offset-1;
+	color: palette(brand);
+	@include font-scale(base, $font-oxygen);
+	text-transform: uppercase;
+	letter-spacing: rem-calc(1px);
+	@include breakpoint(large){
+		@include scut-margin(n n spacer(md) n);
+	}
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //  display elements                                                          //
@@ -140,4 +184,10 @@ last update: 31/05/2017
 			color: $white;
 		}
 	}
+}
+
+/*** google-map ***/
+.map--single{
+	@extend .small-12;
+	height: rem-calc(400px);	
 }
