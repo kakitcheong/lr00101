@@ -1,0 +1,143 @@
+/*** =====================================================
+This document contains elements used in the application
+
+author: kc-slg
+created on: 31/05/2017
+last update: 31/05/2017
+===================================================== ***/
+
+// contents ------------
+//  - layout
+//		- header
+//	- display
+//	- ui
+// ---------------------
+
+////////////////////////////////////////////////////////////////////////////////
+//  layout elements                                                           //
+////////////////////////////////////////////////////////////////////////////////
+
+.header{
+	&--mobile{
+		@include hide-for(large);
+	}
+	&--desktop{
+		@include show-for(large);
+		//border-bottom: $el__border;
+		background-color: $white;
+	}
+}
+
+.page-opening{
+	@extend .row, .small-collapse, .large-uncollapse;
+	@include scut-margin(spacer(md) n);
+	//background-color: $white;
+	@include breakpoint(large){
+		@include scut-margin(spacer(lg) n);
+	}
+}
+
+.section{
+	&__bg-color{
+		&--light{
+			@extend %bg__color--grey;
+		}
+	}
+	&__single{
+		@extend .row, .column;
+	}
+}
+
+.parallax-wrap{ 
+	// min-height: 2000px; // dev
+	@extend %bg__img, %parallax-window;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  display elements                                                          //
+////////////////////////////////////////////////////////////////////////////////
+.print-logo{
+	@extend .show-for-print;
+}
+
+%bg{
+	&__img{
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;	
+	}
+	&__color{
+		&--grey{
+			background-color: palette(grey, light);
+		}
+	}
+}
+
+%parallax-window{
+	background-color: $color__transparent;
+}
+
+.data-list{
+	@extend .show-for-print;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  ui elements                                                               //
+////////////////////////////////////////////////////////////////////////////////
+.h-menu{
+	@extend .menu;
+	& > li{
+		& > a{
+			@include font-scale(sm-md);
+			@include scut-selected(true){
+				color: palette(brand);
+			}
+		}
+	}
+}
+
+%button--custom{
+	@include scut-padding(rem-calc(18px) rem-calc(22));
+	min-width: rem-calc(180px);
+	background-image: linear-gradient(to right, #ffffff, #ffffff 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+	background-position: 100% 0%;
+	background-size: 200% 100%;
+	background-color: $color__transparent !important;
+	@include font-scale(xs, $font-oxygen);
+	text-transform: uppercase;
+	letter-spacing: rem-calc(1px);
+}
+
+.button{	
+	&--default{
+		@extend .button, %button--custom;
+		color: palette(grey, dark);
+		border: $el__border;
+		border-color: palette(grey, dark);
+		@include transition(all 0.2s ease-in);
+		&::after{
+			content: "\35";
+			font-family: "ElegantIcons";
+			font-size: 1.1rem;
+			float: right;
+			@include scut-margin(rem-calc(-1px) n n rem-calc(10px));
+		}
+		@include scut-selected(){
+			color: palette(brand); 
+			background-position: 0% 0%;
+			//border-color: $color__transparent;
+		}
+		@include breakpoint(large){
+			@include scut-selected(){
+				border-color: $color__transparent;
+			}
+		}
+	}
+	&--primary{
+		@extend .button--default;
+		background-image: linear-gradient(to right, palette(brand), palette(brand) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+		@include scut-selected(){
+			color: $white;
+		}
+	}
+}

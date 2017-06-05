@@ -1,0 +1,62 @@
+/*** =====================================================
+This document contains all variables used in the application
+
+author: kc-slg
+created on: 30/05/2017
+last update: 30/05/2017
+===================================================== ***/
+
+// contents ------------
+//  - color variables
+//      - palette
+//  - elements
+//      - borders
+//		- spacers
+// ---------------------
+
+////////////////////////////////////////////////////////////////////////////////
+//  1. color map                                                              //
+////////////////////////////////////////////////////////////////////////////////
+
+$color__grey--base: hsl(0, 0, 35);
+$color__transparent: hsla(0, 0, 0, 0);
+
+$palettes: (
+	brand:(
+		base: hsl(40, 35, 60)
+	),
+	grey: (
+		x-light: hsl(0, 0, 96), 
+		light: hsl(60, 2, 90),
+		base: hsl(0, 0, 35),
+		dark: hsl(0, 0, 21)
+	)
+);
+
+/*** color palette function ***/
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  2. elements                                                               //
+////////////////////////////////////////////////////////////////////////////////
+
+/*** 2.1 border ***/
+$el__border: 1px solid palette(grey, x-light);
+
+/*** 2.2 spacers ***/
+$spacers: (
+	xxs: rem-calc(8),
+	xs: rem-calc(16),
+	sm: rem-calc(24),
+	md: rem-calc(32),
+	lg: rem-calc(48),
+	xlg: rem-calc(64)
+);
+
+@function spacer($vaule: 'xs') {
+    @return map-get($spacers, $vaule);
+}
+
+$padding__mobile--lr: 1.25rem;

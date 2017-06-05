@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////////////////////////////////
+//  carousel                                                     	  		  //
+////////////////////////////////////////////////////////////////////////////////
+
+.carousel{
+	@extend .small-12;
+	&__img{
+		@extend %bg__img;
+		padding-top: 62.5%;
+		@include breakpoint(large down){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+		@include breakpoint(medium){
+			padding-top: 38%;	
+		}
+		@include breakpoint(large){
+			padding-top: 42%;	
+		}
+	}
+	&__content{
+		display: none;
+	}
+	&__display{
+		@include breakpoint(medium down){
+			padding-left: $padding__mobile--lr !important;
+			padding-right: $padding__mobile--lr !important;	
+		}
+	}
+	&__display-outter-wrap{
+		position: relative;
+		@extend .small-12, .medium-10, .large-push-2, .large-9, .xlarge-push-3, .xlarge-8;
+		@include breakpoint(large){
+			@include scut-margin(spacer(xlg)*-1 n n n);	
+		}
+	}
+	&__nav{
+		@include show-for(large);
+		@include scut-absolute(spacer(md)*-1.1 0 n n);
+		@extend .menu;
+		//z-index: -1;
+		li{
+			color: $white;
+			font-size: 2rem;
+			&.prev{
+				background-color: palette(grey, base);
+				&::before{
+					width: spacer(md);
+					height: spacer(md);
+					content: "\34";
+					font-family: "ElegantIcons";
+				}
+			}
+			&.next{
+				background-color: palette(grey, light);
+				&::before{
+					width: spacer(md);
+					height: spacer(md);
+					content: "\35";
+					font-family: "ElegantIcons";
+				}
+			}
+		}
+		& > li{
+			& > a{
+				@include scut-padding(0);
+			}
+		}
+	}
+	&__display{
+		@include breakpoint(large){
+			background-color: palette(grey, light);
+			@include scut-padding(spacer(sm) spacer(md));
+		}
+	}
+}

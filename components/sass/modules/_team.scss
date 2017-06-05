@@ -1,0 +1,52 @@
+////////////////////////////////////////////////////////////////////////////////
+//  team overview - home                                                      //
+////////////////////////////////////////////////////////////////////////////////
+
+.team-overview{
+	@include scut-margin(n n spacer(lg) n);
+	&__profile{
+		@extend .large-offset-3, .large-6, .columns;
+	}
+}
+
+.profile{
+	@include scut-padding(n n spacer(lg) n);
+	&__img{
+		@extend .large-4, .columns, %bg__img;
+		@include breakpoint(large){
+			height: rem-calc(260px);
+		}
+		&--shift{
+			@extend .profile__img;
+			@include scut-margin(spacer(lg)*-1 n n n);	
+		}
+	}
+	&__content{
+		@extend .large-8, .columns;
+	}
+	&__title-wrap{
+		@include scut-margin(n n spacer(md) n);
+	}
+	&__link{
+		@include font-scale(xs, $font-oxygen);
+		font-weight: 700;
+		//font-style: italic;
+		text-transform: uppercase;
+		color: palette(grey);
+		@include scut-padding(n n spcer(xs) n);
+		border-bottom: 1px solid palette(grey, dark);
+		@include scut-selected(true){
+			color: palette(brand);
+		}
+		&::before,
+		&::after{
+			//font-style: normal;
+		}
+		&::before{
+			content: "View ";
+		}
+		&::after{
+			content: "'s full profile";
+		}
+	}
+}

@@ -1,0 +1,33 @@
+////////////////////////////////////////////////////////////////////////////////
+//  site masthead                                                     		  //
+////////////////////////////////////////////////////////////////////////////////
+
+.site-hero{
+	position: relative;
+	&__cover{
+		height: rem-calc(320);
+		@extend %bg__img, %parallax-window;
+		@include breakpoint(medium){
+			height: rem-calc(480);	
+		}
+		@include breakpoint(xlarge){
+			height: rem-calc(620);	
+		}
+	}
+	&__statement{
+		&--fixed{
+			@extend .small-12, .columns;
+			@include hide-for-only(small);
+			max-width: rem-calc(550px);
+			@include scut-fixed(50% n n n);
+			@include scut-margin(n n n 0.5rem);
+			@include breakpoint(xlarge){
+				@include scut-fixed(60% n n n);
+			}
+		}
+		&--mobile{
+			@include show-for-only(small);
+			@include scut-padding($padding__mobile--lr 0.8rem);
+		}
+	}
+}

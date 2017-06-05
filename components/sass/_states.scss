@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////////////////
+//  header navigation - mobile                                                //
+////////////////////////////////////////////////////////////////////////////////
+
+/*** mobile nav bar  ***/
+.mobile-nav__content{
+	&.in-body{
+		.header-nav--mobile{
+			background-color: rgba($white, 0.8);;
+			&__title{
+				color: palette(grey);
+			}
+		}
+	}
+}
+
+/***  mobile nav toggle ***/
+.menu--mobile__is-open{
+	@include burger-to-cross;
+	background-color: $color__transparent !important;
+	&::before,
+	&::after{
+		background-color: palette(grey) !important;
+	}
+}
+.header-nav--mobile__toggle{
+	&.in-body{
+		background-color: palette(grey);
+		&::before,
+		&::after{
+			background-color: palette(grey);
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  animate triggers                                                          //
+////////////////////////////////////////////////////////////////////////////////
+
+%animate{
+	&__fade{
+		@include opacity(0);
+	}
+}
+

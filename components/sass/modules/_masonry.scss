@@ -1,0 +1,76 @@
+////////////////////////////////////////////////////////////////////////////////
+//  masonry                                                     		      //
+////////////////////////////////////////////////////////////////////////////////
+
+.masonry{
+	@include show-for(large);
+	@include scut-margin(n n spacer(lg) n);
+	&__wrap{
+		@include scut-padding(spacer(xlg) n);
+	}
+	&__grid{
+		@extend .large-12, .columns;
+	}
+	&__row{
+		@extend .row, .collapse;
+		&::before,
+		&::after{
+			content: "";
+    		display: block;
+    		clear: both;
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  blocks                                                     		          //
+////////////////////////////////////////////////////////////////////////////////
+
+.blocks{
+	@extend .large-6, .columns;
+	height: rem-calc(200px);
+	&__single{
+		@extend .large-6, .columns;
+		min-height: rem-calc(200px);
+		&--rt{
+			@extend .blocks__single, .large-offset-6;
+		}
+		&--lt{
+			@extend .blocks__single, .large-6, .end;
+		}
+	}
+}
+
+.block{
+	position: relative;
+	&__wrap{
+		@include scut-center-transform;
+		&--v{
+			@include scut-center-transform(y);
+		}
+	}
+	&__img{
+		@extend %bg__img;
+		&--lg{
+			height: rem-calc(400px);
+		}
+	}
+	&__txt{
+		background-color: palette(grey, light);
+		@include scut-padding(spacer(xs) spacer(sm));
+		&--dark{
+			@extend .block__txt;
+			background-color: palette(grey, dark);
+			color: palette(grey, x-light);
+		}
+	}
+}
+
+/*** override foundation collapse padding ***/
+.row.collapse{
+	& > .block{
+		&__txt{
+			@include scut-padding(n spacer(sm));
+		}
+	}
+}

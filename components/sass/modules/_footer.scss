@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////////////////////
+//  footer                                                     	  		      //
+////////////////////////////////////////////////////////////////////////////////
+
+.footer{
+	@extend .expanded, .row;
+	background-color: palette(grey);
+	@include scut-padding(spacer(lg) n);
+	&__inner{
+		@extend .row;
+	}
+	&__col{
+		@extend .small-12, .medium-6, .large-3, .columns;
+		&--omega{
+			@extend .footer__col, .large-offset-3;
+		}
+	}
+	&__text{
+		&--omega{
+			@extend .text-right;
+		}
+	}
+}

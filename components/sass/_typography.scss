@@ -1,0 +1,272 @@
+/*** =====================================================
+This document contains all typographic variables used in the application
+
+author: kc-slg
+created on: 29/05/2017
+last update: 31/05/2017
+===================================================== ***/
+
+// contents ------------
+//	- imports
+//  - typographic variables
+//      - base
+//		- typefaces
+//			- eng
+//	- font-sizes
+//	- base-settings
+//	- headings
+//	- body-text
+//	- typographic voice
+// ---------------------
+
+/*** importing modular scale ***/
+@import 'modularscale';
+
+/*** importing modular scale ***/
+@import '../fonts/ss-social/ss-social.css';
+@import "../fonts/elegant-fonts/style.css";
+
+////////////////////////////////////////////////////////////////////////////////
+//  modular-scale-setting                                                  	  //
+////////////////////////////////////////////////////////////////////////////////
+$ms-base: rem-calc(18px);
+$ms-ratio: $golden;
+
+$ms-3: ms(-3);
+$ms-2: ms(-2);
+$ms-1: ms(-1);
+$ms-05: ms(-0.5);
+$ms-025: ms(-0.25);
+$ms0: ms(0); /*** base size 1em ***/
+$ms025: ms(0.25); 
+$ms05: ms(0.5); 
+$ms1: ms(1);
+$ms2: ms(2);
+$ms3: ms(3);
+$ms4: ms(4);
+
+////////////////////////////////////////////////////////////////////////////////
+//  typographic scale                                                	      //
+////////////////////////////////////////////////////////////////////////////////
+$font-crimson: (
+  	stack: "Crimson Text",
+	xs: (
+		font-size: $ms-05,
+		line-height: $ms-05
+	),
+	sm: (
+		font-size: $ms-025,
+		line-height: $ms-025
+	),
+	base: (
+		font-size: $ms0,
+		line-height: $ms0 * 1.35
+	),
+	sm-md: (
+		font-size: $ms025,
+		line-height: $ms025 * 1.3
+	),
+	md: (
+		font-size: $ms05,
+		line-height: $ms05 * 1.25
+	),
+	md-lg: (
+		font-size: $ms1,
+		line-height: $ms1 * 1.1
+	),
+	lg: (
+		font-size: $ms2,
+		line-height: $ms2 
+	),
+	xlg: (
+		font-size: $ms3,
+		line-height: $ms3
+	),
+	xxlg: (
+		font-size: $ms4,
+		line-height: $ms4
+	)
+);
+
+$font-oxygen: (
+    stack: "Oxygen", 
+    xs: (
+		font-size: $ms-05,
+		line-height: $ms-05 * 1.5
+    ),
+    sm: (
+		font-size: $ms-025,
+		line-height: $ms-025 * 1.35
+	),
+	base: (
+		font-size: $ms0,
+		line-height: $ms0 * 1.2
+	),
+	sm-md: (
+		font-size: $ms025,
+		line-height: $ms025
+	),
+	md: (
+		font-size: $ms05,
+		line-height: $ms05 * 0.9
+	),
+	md-lg: (
+		font-size: $ms1,
+		line-height: $ms1 * 0.8
+	)
+ );
+
+$font-default: $font-crimson;
+
+////////////////////////////////////////////////////////////////////////////////
+//  fontset functions                                               	      //
+////////////////////////////////////////////////////////////////////////////////
+@function _fontset-feature($feature, $family:$font-default, $set: 'base'){
+    $result: map-get(map-get($family, $set), $feature);
+    @return ($result);
+}
+
+@function fontset-family($family) {
+    $result: map-get($family, stack);
+    @return unquote($result);
+}
+
+@function calc-font-size($set, $family:$font-default) {
+    @return _fontset-feature(font-size, $family, $set);
+}
+
+@function calc-line-height($set, $family:$font-default) {
+    @return _fontset-feature(line-height, $family,  $set);
+}
+
+@mixin font-scale ($font-size, $family:$font-default, $line-height:$font-size) {
+    font-size: calc-font-size($font-size, $family);
+    line-height: calc-line-height($line-height, $family);
+    @if $family != $font-default {
+        font-family: fontset-family($family);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  header navigation                                               	      //
+////////////////////////////////////////////////////////////////////////////////
+.nav{
+	&--mobile{
+		&__brand{
+			@include font-scale(md, $font-oxygen);
+			line-height: 1;
+		}
+	}
+}
+
+.header-nav{
+	&__brand{
+		@include font-scale(md, $font-oxygen);
+	}	
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  headings                                              	      			  //
+////////////////////////////////////////////////////////////////////////////////
+h2{
+	&.opening{
+		&__site-hero-text{
+			@include font-scale(md);
+			&--reversed{
+				@extend .opening__site-hero-text;
+				color: $white;
+				//color: green;
+				@include opacity(1);
+				@include transition(all 0.3s ease-in);
+				@include breakpoint(large){
+					//@include font-scale(md-lg);	
+				}
+				&.animate__fade{
+					@extend %animate__fade;
+				}
+			}
+		}
+	}
+}
+
+.heading{
+	&__base{
+		@include font-scale(sm, $font-oxygen);
+		text-transform: uppercase;
+		@include scut-margin(n n spacer(xxs) n);
+		&--reversed{
+			@extend .heading__base;
+			color: palette(brand);
+		}
+		&--reversed-center{
+			@extend .heading__base--reversed, .text-center;
+			position: relative;
+			&::after{
+				content: "";
+				width: rem-calc(20px);
+				height: rem-calc(1px);
+				background-color: palette(brand);
+				@include scut-absolute(n 0 rem-calc(8px)*-1 0);
+				@include scut-margin(n auto);
+			}
+		}
+	}
+	&__sm{
+		@include font-scale(sm, $font-oxygen);
+		text-transform: uppercase;
+		letter-spacing: rem-calc(1px);
+		@include breakpoint(medium){
+			@include font-scale(md, $font-oxygen);
+		}
+		@include breakpoint(medium){
+			@include font-scale(sm-md, $font-oxygen);
+		}
+	}
+	&__lg{
+		@include font-scale(md-lg);
+		@include breakpoint(medium){
+			@include font-scale(lg);
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  body-text                                              	      			  //
+////////////////////////////////////////////////////////////////////////////////
+.paragraph{
+	@include font-scale(sm-md);
+	@include scut-margin(n n spacer(xs) n);
+	@include breakpoint(large){
+		@include font-scale(base);
+	}
+	
+	&--reversed{
+		@extend .paragraph;
+		color: palette(grey, x-light);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  misc                                              	      			      //
+////////////////////////////////////////////////////////////////////////////////
+.icon{
+	font-size: $ms-025;
+}
+
+.big-number{
+	//@extend .text-center;
+	display: inline-block;
+	@include font-scale(xxlg);
+}
+
+.italic{
+	font-style: italic;
+}
+
+.shift{
+	position: relative;
+	&--up{
+		@extend .shift;
+		top: rem-calc(-8px);
+	}	
+}

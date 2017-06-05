@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////////////////////
+//  section-opening                                                     	  //
+////////////////////////////////////////////////////////////////////////////////
+
+.section-opening{
+	@extend .small-12, .large-3, .columns;
+	@include breakpoint(medium down){
+		padding-left: $padding__mobile--lr !important;	
+	}
+	@include scut-margin(n n spacer(xs) n);
+	@include breakpoint(large){
+		@include scut-margin(n n 0 n);	
+	}
+	&__title-secondary{
+		@include breakpoint(large){
+			@include scut-margin(n n spacer(xs) n);
+		}
+	}
+	&__title{
+		@include show-for(large);
+		@include scut-margin(n n spacer(xs) n);
+	}
+}

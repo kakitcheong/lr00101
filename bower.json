@@ -19,5 +19,12 @@
     "test",
     "tests"
   ],
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "parallax.js": "^1.4.2",
+    "slick-carousel": "^1.6.0",
+    "footer-reveal": "*",
+    "matchHeight": "matchheight#^0.7.2",
+    "jQuery-viewport-checker": "^1.8.7"
+  }
 }

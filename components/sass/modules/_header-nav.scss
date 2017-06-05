@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////
+//  header navigation - mobile                                                //
+////////////////////////////////////////////////////////////////////////////////
+
+$offcanvas-full-screen-bg: $white;
+$offcanvas-full-screen-side: left;
+
+%offcanvas-full-screen {
+  	@include off-canvas-base($background: $offcanvas-full-screen-bg, $transition: 0.5s ease-in-out);
+  	@include off-canvas-position($position: $offcanvas-full-screen-side, $size: 100%);
+}
+
+%offcanvas-full-screen-inner {
+  	@include scut-padding(1rem);
+}
+
+%offcanvas-full-screen-menu {
+	@include menu-base;
+	@include menu-direction(vertical);
+	a {
+		color: palette(grey);
+		@include font-scale(md, $font-oxygen);
+		@include scut-selected {
+			color: palette(brand);
+		}
+	}
+}
+
+.mobile-nav{
+	&__container{
+		@extend %offcanvas-full-screen;
+		@include box-shadow(0 0 0 0);
+	}
+	&__inner-wrap{
+		@extend %offcanvas-full-screen-inner;
+	}
+	&__content{
+		@include scut-fixed(0 0 n 0);
+	}
+	&__menu{
+		@extend %offcanvas-full-screen-menu;
+		li{
+			@include opacity(0);
+			@include scut-padding(n n n 2rem);
+			@include transition(all 0.3s ease-in);
+			&.show{
+				@include opacity(1);
+				@include scut-padding(n n n 0);
+			}
+		}
+	}
+}
+
+.header-nav{
+	&--mobile{
+		@extend .top-bar;
+		background-color: $color__transparent;
+		@include scut-padding(1rem n);
+		@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
+		&__title{
+			@extend .top-bar-title;
+			color: $white;
+			@include scut-padding(0 0 0 1rem);
+			@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
+		}
+		&__toggle{
+			@include burger(26px, 2px, 8px, $white);
+			@include scut-fixed(1rem 1.25rem n n);
+			@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
+			z-index: 11;
+		}
+	}
+
+	&__wrap{
+		&--right{
+			@extend .top-bar-right;
+		}
+	}
+	@extend .top-bar;
+	background-color: $white;
+	@include scut-padding(1rem n);
+	//@include scut-margin(n n spacer(xlg) n);
+	&__title{
+		@extend .top-bar-title;
+		color: palette(brand);
+	}
+	ul{
+		background-color: $color__transparent;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  header navigation - desktop                                               //
+////////////////////////////////////////////////////////////////////////////////
+
+.sticky-nav{
+	@extend .sticky;
+	width: 100%;	
+}

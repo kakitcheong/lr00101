@@ -11,32 +11,463 @@
         
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<!--
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    	-->
-        <!--<link rel="stylesheet" href="css/main.css"> -->
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Oxygen:400,700" rel="stylesheet">
+
+        <!-- Slick Carousel -->
+        <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+        
+        <link rel="stylesheet" href="stylesheets/style.css"> 
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        
+        <!-- footer cover -->
+        
+        <!-- site-hero -->
+        <section class="site-hero" id="site-hero">
+            <div class="site-hero__cover" data-parallax="scroll" data-image-src="images/site-hero.jpg">
+            </div>
+            <!-- /.site-hero__cover -->
+            <div class="row">
+            <div class="site-hero__statement--fixed">
+                <h2 class="opening__site-hero-text--reversed">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eos, non similique amet quos qui voluptatibus nostrum laboriosam quasi est quidem obcaecati? Ea hic velit iusto aliquam expedita minus deserunt.</h2>
+            </div>
+            <!-- /.site-hero__statement--fixed -->
+            </div>
+        </section>
+        <!-- /.site-hero -->
+        
+        <div class="section__bg-color--light section__single">
+            <div class="site-hero__statement--mobile">
+                <h2 class="opening__site-hero-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis quod, expedita ab quos, vitae quas sed praesentium earum ad et reprehenderit adipisci id. Quis porro, voluptate harum magnam, quidem animi.</h2>
+                   <!-- /.opening__hero-text -->   
+            </div>
+            <!-- /.site-hero__statement -->    
+        </div>
+        <!-- /.section__bg-color--light -->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <!-- header mobile -->
+        <header class="header--mobile">
+            <div id="mobile-nav" class="mobile-nav__container" data-off-canvas data-transition="overlap">
+                <div class="mobile-nav__inner-wrap">
+                    <nav>
+                        <ul class="mobile-nav__menu"> 
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Area of Practice</a></li>
+                            <li><a href="#">People</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Search</a></li>
+                        </ul>
+                        <!-- /.mobile-nav__menu -->
+                    </nav>
+                </div>
+                <!-- /.mobile-nav__inner-wrap -->
+            </div>
+            <!-- /.mobile-nav__container -->
+
+            <div class="mobile-nav__content" data-off-canvas-content>
+                <div class="header-nav--mobile">
+                    <div class="header-nav--mobile__title">
+                        <strong class="nav--mobile__brand">Luís Reigadas</strong>
+                    </div>
+                    <!-- /.header-nav--mobile__title -->
+                </div>
+                <!-- /.header-nav--mobile -->
+            </div>
+            <!-- /.mobile-nav__content -->
+            
+            <button class="header-nav--mobile__toggle" type="button" data-toggle="mobile-nav">
+            </button>
+        </header>
+        <!-- /.header--mobile -->
         
+        <!-- header desktop -->
+        <header class="header--desktop" data-sticky-container>
+            <nav class="sticky-nav sticky" data-sticky data-top-anchor="site-hero:bottom" data-margin-top="0">
+                <div class="row column">
+                    <div class="header-nav" >
+                        <div class="header-nav__title">
+                            <strong class="header-nav__brand">Luís Reigadas</strong>   
+                        </div>
+                        <!-- /.header-nav__title -->
+                        <div class="header-nav__wrap--right">
+                            <ul class="h-menu">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Area of Practice</a></li>
+                                <li><a href="#">People</a></li>
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Search&nbsp;<span class="icon icon_search"></span></a></li>
+                            </ul>   
+                        </div>
+                        <!-- /.header-nav__wrap--right -->
+                    </div>
+                    <!-- /.header-nav -->
+                </div>
+                <!-- /.row -->
+            </nav>
+        </header>
+
+        <div class="print-logo"><h1>Luis Reigadas Advogado e Notario Privado</h1></div>
+        <!-- /.print-logo -->
+
+        <main class="main">
+            <section class="page-opening">
+                <div class="section-opening">
+                    <div class="section-opening__title-secondary">
+                        <strong class="heading__sm">
+                            The Services
+                        </strong>
+                        <!-- /.heading__sm -->
+                    </div>
+                    <!-- /.section-opening__title-secondary -->
+                    <div class="section-opening__title">
+                        <h2 class="heading__lg" id="dynamic-title">
+                            <!-- dynamic content -->
+                        </h2>
+                        <!-- /.heading__lg -->
+
+                        <ul class="data-list">
+                            <li data-slide-position="0">Banking & Finance</li>
+                            <li data-slide-position="1">Property Law</li>
+                            <li data-slide-position="2">Gaming Law</li>
+                        </ul>
+                    </div>
+                    <!-- /.section-opening__title -->
+                </div>
+                <!-- /.section-opening -->
+                
+                <div class="cover">
+                    <div class="row collapse">
+                        <div class="cover__carousel carousel">
+                            <div class="carousel__item">
+                                <div class="carousel__img" style="background-image: url('https://unsplash.it/g/1280/800');">   
+                                </div>
+                                <!-- /.carousel__img -->
+                                <div class="carousel__content init">
+                                    <div class="content__wrap">
+                                        <h3 class="heading__base--reversed">
+                                        Banking  & Finance    
+                                        </h3>
+                                        <!-- /.heading__base -->
+                                        <p class="paragraph">
+                                            1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque porro id nobis ipsam amet cum nihil quasi ab esse voluptates tenetur facere hic, dolor vitae sunt maxime nemo, consectetur adipisci!
+                                        </p>
+                                        <a href="#" class="button--default">Learn More</a>   
+                                    </div>
+                                    <!-- /.content__wrap -->
+                                </div>
+                                <!-- /.carousel__content -->
+                            </div>
+                            <!-- /.carousel__item -->
+                            <div class="carousel__item">
+                                <div class="carousel__img" style="background-image: url('https://unsplash.it/g/1220/800');">
+                                </div>
+                                <!-- /.carousel__img -->
+                                <div class="carousel__content">
+                                    <div class="content__wrap">
+                                        <h3 class="heading__base--reversed">
+                                            Property Law    
+                                        </h3>
+                                        <!-- /.heading__base -->
+                                        <p class="paragraph">
+                                            2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque porro id nobis ipsam amet cum nihil quasi ab esse voluptates tenetur facere hic, dolor vitae sunt maxime nemo, consectetur adipisci!
+                                        </p>
+                                        <a href="#" class="button--default">Learn More</a>
+                                    </div>
+                                    <!-- /.content__wrap -->
+                                </div>
+                                <!-- /.carousel__content -->
+                            </div>
+                            <!-- /.carousel__item -->
+                            <div class="carousel__item">
+                                <div class="carousel__img" style="background-image: url('https://unsplash.it/g/1230/800');">
+                                </div>
+                                <!-- /.carousel__img -->
+                                <div class="carousel__content">
+                                    <div class="content__wrap">
+                                        <h3 class="heading__base--reversed">
+                                        Gaming Law    
+                                        </h3>
+                                        <!-- /.heading__base -->
+                                        <p class="paragraph">
+                                            3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque porro id nobis ipsam amet cum nihil quasi ab esse voluptates tenetur facere hic, dolor vitae sunt maxime nemo, consectetur adipisci! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa modi iure tempora excepturi facilis ratione reiciendis autem. Ex numquam maiores dignissimos, dolore delectus, incidunt enim laudantium maxime inventore tempora explicabo.
+                                        </p>
+                                        <a href="#" class="button--default">Learn More</a>    
+                                        </div>
+                                    <!-- /.content__wrap -->
+                                </div>
+                                <!-- /.carousel__content -->
+                            </div>
+                            <!-- /.carousel__item -->
+                        </div>
+                        <!-- /.cover__carousel -->
+                        <div class="carousel__display-outter-wrap">
+                            <ul class="carousel__nav">
+                                <li class="prev"><a href="#"></a></li>
+                                <li class="next"><a href="#"></a></li>
+                            </ul>
+                            <!-- /.carousel__nav -->
+                            <div class="carousel__display">
+                                <div class="display">
+                                    <!-- dynamic content -->       
+                                </div>
+                                <!-- /.display__content --> 
+                            </div>
+                            <!-- /.carousel__display -->    
+                        </div>
+                        <!-- /.carousel__display-outter-wrap -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.page-cover -->      
+            </section>
+            <!-- /.page-opening -->
+
+            <section class="masonry">
+                <div class="parallax-wrap masonry__wrap" data-parallax="scroll" data-image-src="images/parallax-bg-001.jpg">
+
+                    <div class="row collapse">
+                        <div class="section-opening">
+                            <div class="section-opening__title-secondary">
+                                <strong class="heading__sm">
+                                    The Office
+                                </strong>
+                                <!-- /.heading__sm -->
+                            </div>
+                            <!-- /.section-opening__title-secondary -->
+                        </div>
+                        <!-- /.section-opening -->  
+                    </div>
+                    <!-- /.row -->
+                    
+                    <div class="row collapse">
+                        <div class="masonry__grid">
+                            <div class="masonry__row">
+                                <div class="blocks">
+                                    <div class="block blocks__single--rt block__img" data-mh="masonry-block" style="background-image:url('https://unsplash.it/g/320/300');">
+                                    </div>
+                                    <!-- /.blocks__single--rt -->
+                                </div>
+                                <!-- /.blocks -->
+                                <div class="blocks">
+                                    <div class="block blocks__single--rt block__img--lg" data-mh="masonry-block--lg" style="background-image:url('https://unsplash.it/g/320/480');">
+                                    </div>
+                                    <!-- /.blocks__single--rt -->
+                                </div>
+                                <!-- /.blocks -->  
+                            </div>
+                            <!-- /.masonry__row -->
+                            <div class="masonry__row">
+                                <div class="blocks">
+                                    <div class="block blocks__single--lt block__txt" data-mh="masonry-block">
+                                        <div class="block__wrap--v">
+                                            <h3 class="heading__base--reversed">
+                                                About Us   
+                                            </h3>
+                                            <p class="paragraph">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta porro odio facere. Lorem ipsum dolor sit amet.
+                                            </p>    
+                                        </div>
+                                        <!-- /.block__wrap -->
+                                    </div>
+                                    <!-- /.blocks__single--lt -->
+                                </div>
+                                <!-- /.blocks -->
+                                <div class="blocks">
+                                    <div class="block blocks__single--lt block__img" data-mh="masonry-block" style="background-image:url('https://unsplash.it/g/320/240');">
+                                    </div>
+                                    <!-- /.blocks__single--lt -->    
+                                </div>
+                                <!-- /.blocks -->  
+                            </div>
+                            <!-- /.masonry__row -->
+                            <div class="masonry__row">
+                                <div class="blocks">
+                                    <div class="block blocks__single--rt block__txt" data-mh="masonry-block">
+                                        <div class="block__wrap">
+                                            <h3 class="heading__base--reversed-center">
+                                                Rooted in Macau since   
+                                            </h3>
+                                            <strong class="big-number" data-count="1991">
+                                                1
+                                            </strong>    
+                                        </div>
+                                        <!-- /.block__wrap -->
+                                    </div>
+                                    <!-- /.blocks__single--rt -->
+                                </div>
+                                <!-- /.blocks -->
+                                <div class="blocks">
+                                    <div class="block blocks__single--rt block__txt--dark" data-mh="masonry-block">
+                                        <div class="block__wrap">
+                                            <h3 class="heading__base--reversed-center">
+                                            Cases Handled   
+                                            </h3>
+                                            <strong class="big-number" data-count="3218">
+                                                40
+                                            </strong>    
+                                        </div>
+                                        <!-- /.block__wrap -->
+                                    </div>
+                                    <!-- /.blocks__single--rt -->    
+                                </div>
+                                <!-- /.blocks -->  
+                            </div>
+                            <!-- /.masonry__row -->        
+                        </div>
+                        <!-- /.masonry__grid -->    
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.parallax-wrap -->
+            </section>
+            <!-- /.masonry -->
+            
+            <section class="team-overview">
+                <div class="row">
+
+                    <div class="section-opening">
+                        <div class="section-opening__title-secondary">
+                            <strong class="heading__sm">
+                                The Team
+                            </strong>
+                            <!-- /.heading__sm -->
+                        </div>
+                        <!-- /.section-opening__title-secondary -->
+                        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores aperiam obcaecati, odio tempora sit architecto reiciendis tenetur minus sapiente dignissimos nisi placeat, facilis facere vitae commodi, laudantium voluptas inventore id.</p>
+                        <a href="#" class="button--primary">Meet Them</a>
+                    </div>
+                    <!-- /.section-opening -->
+                    
+                    <div class="team-overview__profile profile">
+                        <div class="row">
+                            <div class="profile__img" style="background-image: url('https://unsplash.it/g/480/640');"></div>
+                            <!-- /.profile__img -->
+                            <div class="profile__content">
+                                <div class="profile__title-wrap">
+                                    <h3 class="heading__base--reversed">JAMES C. LEWIS</h3>
+                                    <!-- /.heading__base--reversed -->
+                                    <span class="italic shift--up">Senior Associate</span>    
+                                </div>
+                                <!-- /.profile__title-wrap -->
+                                <p class="paragraph">He spent over three decades working on various matters relating to finance. He worked for both large and small banking companies. Mr. Lewis has been involved with transactions in a variety of industries including Real Estate, Manufacturing, Retail, Professional Organizations, Restaurants and Non-Profit Organizations.</p>
+                                <a href="#" class="profile__link">James C. Lewis</a> 
+                            </div>
+                            <!-- /.profile__content -->
+                        </div>
+                        <!-- /.row -->    
+                    </div>
+                    <!-- /.team-overview__profile -->
+
+                    <div class="team-overview__profile profile end">
+                        <div class="row">
+                            <div class="profile__img--shift" style="background-image: url('https://unsplash.it/g/540/640');"></div>
+                            <!-- /.profile__img -->
+                            <div class="profile__content">
+                                <div class="profile__title-wrap">
+                                    <h3 class="heading__base--reversed">JACINTA STUDHAM</h3>
+                                    <!-- /.heading__base--reversed -->
+                                    <span class="italic shift--up">Associate</span>    
+                                </div>
+                                <!-- /.profile__title-wrap -->
+                                <p class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                                <a href="#" class="profile__link">Jacinta Studham</a> 
+                            </div>
+                            <!-- /.profile__content -->
+                        </div>
+                        <!-- /.row -->    
+                    </div>
+                    <!-- /.team-overview__profile -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.team-overview -->
+
+            <section class="journal-overview">
+                <div class="row">
+                    <div class="section-opening">
+                        <div class="section-opening__title-secondary">
+                            <strong class="heading__sm">
+                                Office Journal
+                            </strong>
+                            <!-- /.heading__sm -->
+                        </div>
+                        <!-- /.section-opening__title-secondary -->
+                        <div class="section-opening__title">
+                            <h2 class="heading__lg">
+                                Selected News
+                            </h2>
+                            <!-- /.heading__lg -->
+                        </div>
+                        <!-- /.section-opening__title -->
+                        <a href="#" class="button--primary">More News</a>
+                    </div>
+                    <!-- /.section-opening -->
+
+
+                </div>
+                <!-- /.row -->        
+            </section>
+            <!-- /.journal-overview -->
+
+        </main>
+        <!-- /.main -->
+        
+        <footer class="footer">
+            <div class="footer__inner">
+                <div class="footer__col">
+                    <p class="paragraph--reversed">
+                        phone — <br>
+                        +853 2832 2093 <br><br>
+
+                        fax — <br>
+                        +853 2832 2387   
+                    </p>
+                    <!-- /.paragraph--reversed -->
+                    
+                </div>
+                <div class="footer__col">
+                    <p class="paragraph--reversed">
+                        Travessa da Misericordia, no.6 -3 A, Macau<br><br>
+
+                        Monday — Friday<br>
+                        9:30 AM — 6:30 PM    
+                    </p>
+                    <!-- /.paragraph--reversed -->
+                    
+                </div>
+                <div class="footer__col--omega">
+                    <p class="paragraph--reversed footer__text--omega">
+                        Copyright, 2017. All right reserved.    
+                    </p>
+                    <!-- /.paragraph--reversed -->
+                </div>
+            </div>
+            <!-- /.footer__inner -->
+        </footer>
+        <!-- /.footer -->
+        
+        <!--
         <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-        
-        
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
-    	
-        
+        -->
     	<script src="bower_components/jquery/dist/jquery.js"></script>
-        
-        <script src="js/script.js"></script>
 		<script src="bower_components/what-input/dist/what-input.js"></script>
+        <script src="bower_components/parallax.js/parallax.min.js"></script>
 		<script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
-        
+        <!-- slick carousel -->
+        <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+        <!-- match height -->
+        <script src="bower_components/matchHeight/dist/jquery.matchHeight-min.js"></script>
+        <!-- viewport check -->
+        <script src="bower_components/jQuery-viewport-checker/dist/jquery.viewportchecker.min.js"></script>
+        <script src="js/script.js"></script>
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;

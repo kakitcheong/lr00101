@@ -2,5 +2,16 @@
 //  configs                                                                   //
 ////////////////////////////////////////////////////////////////////////////////
 
-@import 'settings';
-@import 'utilities';
+@import "settings";
+@import "utils";
+@import "vars";
+@import "typography";
+
+////////////////////////////////////////////////////////////////////////////////
+//  core                                                                      //
+////////////////////////////////////////////////////////////////////////////////
+
+@import "base";
+@import "elements";
+@import "modules";
+@import "states";
