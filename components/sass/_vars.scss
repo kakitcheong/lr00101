@@ -52,7 +52,8 @@ $spacers: (
 	sm: rem-calc(24),
 	md: rem-calc(32),
 	lg: rem-calc(48),
-	xlg: rem-calc(64)
+	xlg: rem-calc(64),
+	xxlg: rem-calc(80)
 );
 
 @function spacer($vaule: 'xs') {

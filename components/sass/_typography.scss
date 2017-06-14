@@ -89,7 +89,11 @@ $font-crimson: (
 );
 
 $font-oxygen: (
-    stack: "Oxygen", 
+    stack: "Oxygen",
+    xxs: (
+		font-size: $ms-1,
+		line-height: $ms-1 * 1.5
+    ), 
     xs: (
 		font-size: $ms-05,
 		line-height: $ms-05 * 1.5
@@ -104,7 +108,7 @@ $font-oxygen: (
 	),
 	sm-md: (
 		font-size: $ms025,
-		line-height: $ms025
+		line-height: $ms025 * 1.2
 	),
 	md: (
 		font-size: $ms05,
@@ -230,6 +234,10 @@ h2{
 		@include breakpoint(medium){
 			@include font-scale(lg);
 		}
+		@include scut-margin(n n spacer(xs) n);
+		@include breakpoint(medium){
+			@include scut-margin(n n spacer(md) n);	
+		}
 	}
 }
 
@@ -253,6 +261,16 @@ h2{
 	&--md{
 		@include font-scale(md, $font-oxygen);
 	}
+	&--opening{
+		@include font-scale(base, $font-oxygen);
+		color: palette(grey, base);
+		font-weight: 700;
+		@include scut-margin(n n spacer(xs) n);
+		@include breakpoint(medium){
+			width: 80%;
+			@include scut-margin(n n spacer(md) n);
+		}
+	}
 }
 
 .meta{
@@ -260,6 +278,45 @@ h2{
 		@include font-scale(xs, $font-oxygen);
 		text-transform: uppercase;
 		letter-spacing: rem-calc(1px);
+	}
+	&--title{
+		@extend .meta--default;
+		text-transform: none;
+		color: palette(grey, base);
+		&::after{
+			content: '\2014';
+			letter-spacing: 0;
+		}
+	}
+	&--name{
+		@include font-scale(md-lg);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  blockquote                                              	      		  //
+////////////////////////////////////////////////////////////////////////////////
+.blockquote{
+	@include font-scale(sm-md, $font-oxygen);
+	font-weight: 700;
+	color: palette(grey, dark);
+	text-align: justify;
+	@include scut-margin(n n spacer(lg) n); 
+	&::before{
+		content: '"';
+		position: absolute;
+		@include scut-margin(n n n rem-calc(-10px));
+	}
+	&::after{
+		content: '"';
+	}
+	&--alt{
+		@extend .blockquote;
+		@include scut-margin(n n spacer(md) n);
+		@include breakpoint(large){
+			width: 80%;
+			@include scut-padding(n n n spacer(md));	
+		}
 	}
 }
 
@@ -289,4 +346,10 @@ h2{
 }
 .high-light{
 	color: palette(brand);
+}
+
+.small{
+	@include font-scale(xxs, $font-oxygen);
+	color: palette(grey, base);
+	text-transform: uppercase;
 }

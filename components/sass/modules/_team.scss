@@ -67,3 +67,62 @@
 		}
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////
+//  team grid - people                                                        //
+////////////////////////////////////////////////////////////////////////////////
+
+.team-grid{
+	&__item{
+		@extend .small-12, .medium-6, .large-offset-1, .large-5, .columns;
+		&:last-child{
+			@extend .end;
+		}
+		@include scut-margin(n n spacer(md) n);
+		@include breakpoint(large){
+			@include scut-margin(n n spacer(lg) n);	
+		}
+	}
+	&__img{
+		height: rem-calc(280px);
+		@include scut-margin(n n spacer(xs) n);
+		@include breakpoint(large){
+			height: rem-calc(320px);
+			@include scut-margin(n n spacer(sm) n);
+		}
+	}
+	&__link{
+		@include scut-selected(true){
+			color: palette(brand);
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//  people single                                                             //
+////////////////////////////////////////////////////////////////////////////////
+
+.profile-single{
+	@include scut-margin(n n spacer(lg) n);
+	@include breakpoint(large){
+		@include scut-margin(spacer(md) n spacer(lg) n);
+	}
+	&__col{
+		&--lg{
+			@extend .small-12, .medium-8, .large-5, .column;
+		}
+		&--sm{
+			@extend .small-12, .medium-4, .large-5, .large-offset-1, .end, .column;
+		}
+	}
+	&__img{
+		@include breakpoint(large){
+			height: rem-calc(320px);
+		}
+	}
+	&__info{
+		@include breakpoint(large){
+			@include scut-margin(n n spacer(md) n);
+		}
+	}
+}

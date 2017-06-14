@@ -29,11 +29,14 @@ last update: 31/05/2017
 }
 
 .page-opening{
-	@extend .row, .small-collapse, .large-uncollapse;
+	//@extend .row, .small-collapse, .large-uncollapse;
 	@include scut-margin(spacer(md) n);
 	//background-color: $white;
 	@include breakpoint(large){
 		@include scut-margin(spacer(xlg) n);
+	}
+	&__wrap{
+		//@extend .row, .small-collapse, .medium-collapse, .large-uncollapse;
 	}
 }
 
@@ -62,6 +65,18 @@ last update: 31/05/2017
 	}
 }
 
+.aside{
+	@extend .medium-3, .columns;
+	@include show-for(medium); 
+}
+
+.main{
+	&--with-aside{
+		@extend .small-12, .medium-9, .large-8, .large-offset-1, .columns;
+		@include scut-margin(n n spacer(lg) n);	
+	}
+}
+
 /*** 
 layout variation one 
 
@@ -69,30 +84,110 @@ component description:
 image span 4 columns on left with text over 4 column on right with 1 column offset
 ***/
 .layout-one{
+	@include scut-margin(n n spacer(xlg) n);
 	&__wrap{
-		@extend .row, .small-collapse, .large-uncollapse;
+		@extend .row, .small-collapse, .medium-uncollapse;
 		//@include scut-margin(spacer(md) n);
 	}
 	&__img{
-		@extend %bg__img, .small-12, .large-4, .large-offset-1, .columns;
-		padding-top: 22.5%;
+		@extend %bg__img, .small-12, .medium-6, .large-4, .large-offset-1, .columns;
+		padding-top: 62.5%;
+		@include breakpoint(medium){
+			padding-top: 32.5%;
+		}
 		@include breakpoint(large down){
 			@include scut-margin(n n spacer(xs) n);	
 		}
+		@include breakpoint(large){
+			padding-top: 22.5%;
+		}
 	}
 	&__txt{
-		@extend .small-12, .large-4, .large-offset-2, .end, .columns;
+		@extend .small-12, .medium-6, .large-4, .large-offset-2, .end, .columns;
+		@include breakpoint(small only){
+			padding-left: $padding__mobile--lr !important;
+			padding-right: $padding__mobile--lr !important;	
+		}
+	}
+}
+ 
+.layout-two{
+	@include scut-margin(n n spacer(xlg) n);
+	&__wrap{
+		@extend .row, .small-collapse, .medium-uncollapse;
+	}
+	&__txt{
+		@extend .small-12, .medium-6, .large-4, .large-offset-2, .columns;
+		@include breakpoint(small only){
+			padding-left: $padding__mobile--lr !important;
+			padding-right: $padding__mobile--lr !important;	
+		}	
+	}
+	&__img{
+		@extend .medium-6, .large-3, .large-offset-1, .end, .columns;
+		@include hide-for-only(small);
+		@include breakpoint(medium){
+			padding-top: 32.5%;
+		}
+		@include breakpoint(large down){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+		@include breakpoint(large){
+			padding-top: 37.5%;
+		}	
+	}
+}
+
+.layout-three{
+	@include scut-margin(n n spacer(xlg) n);
+	&__wrap{
+		@extend .row, .small-collapse, .medium-uncollapse;
+	}
+	&__img{
+		@extend .small-12, .medium-6, .large-5, .large-offset-1, .columns;
+		padding-top: 62.5%;
+		@include breakpoint(medium){
+			padding-top: 62.5%;
+		}
+		@include breakpoint(large down){
+			@include scut-margin(n n spacer(xs) n);	
+		}
+		@include breakpoint(large){
+			padding-top: 27.5%;
+		}	
+	}
+	&__txt{
+		@extend .small-12, .medium-6, .large-4, .large-offset-1, .end, .columns;
+		@include breakpoint(small only){
+			padding-left: $padding__mobile--lr !important;
+			padding-right: $padding__mobile--lr !important;	
+		}	
 	}
 }
 
 .section-title{
-	@extend .small-12, .large-offset-1;
+	@extend .small-12, .large-offset-1, .large-10, .end, .columns;
+	color: palette(brand);
+	@include font-scale(base, $font-oxygen);
+	text-transform: uppercase;
+	letter-spacing: rem-calc(1px);
+	@include scut-margin(n n spacer(xs) n);
+	@include breakpoint(medium down){
+		padding-left: $padding__mobile--lr !important;
+		padding-right: $padding__mobile--lr !important;	
+	}
+	@include breakpoint(large){
+		@include scut-margin(n n spacer(md) n);
+	}
+}
+
+.list-title{
 	color: palette(brand);
 	@include font-scale(base, $font-oxygen);
 	text-transform: uppercase;
 	letter-spacing: rem-calc(1px);
 	@include breakpoint(large){
-		@include scut-margin(n n spacer(md) n);
+		@include scut-margin(n n spacer(xxs) n);
 	}
 }
 
@@ -125,6 +220,10 @@ image span 4 columns on left with text over 4 column on right with 1 column offs
 	@extend .show-for-print;
 }
 
+.sticky{
+	width: 100%;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //  ui elements                                                               //
 ////////////////////////////////////////////////////////////////////////////////
@@ -137,6 +236,100 @@ image span 4 columns on left with text over 4 column on right with 1 column offs
 				color: palette(brand);
 			}
 		}
+	}
+}
+
+.magellan-menu{
+	@extend .vertical, .menu;
+	width: 100%;
+	& > li{
+		border-top: 1px solid palette(grey, dark);
+		&:last-child{
+			border-bottom: 1px solid palette(grey, dark);
+		}
+	}
+	& > li > a{
+		@include font-scale(xs, $font-oxygen);
+		color: palette(grey, dark);
+		position: relative;
+		@include scut-padding(spacer(xxs) 0);
+		@include transition(all 0.2s ease-in);
+			&::before{
+				content: "\35";
+				font-family: "ElegantIcons";
+				font-size: 1.1rem;
+				color: palette(brand);
+				@include scut-absolute(n n n spacer(xs)*-1);
+				@include opacity(0);
+				@include transition(all 0.2s ease-in);
+			}
+			&.active{
+			color: palette(brand);
+			@include scut-padding(n n n spacer(xs));
+			&::before{
+				color: palette(brand);
+				@include scut-absolute(n n n 0);
+				@include opacity(1);
+			}
+		}
+		@include scut-selected(true){
+			color: palette(brand);
+			@include scut-padding(n n n spacer(xs));
+			&::before{
+				color: palette(brand);
+				@include scut-absolute(n n n 0);
+				@include opacity(1);
+			}
+		}
+	}
+
+}
+
+/*** list ***/
+.list{
+	@include font-scale(sm-md);
+	@include scut-margin(n n spacer(xs) n);
+	@include breakpoint(large){
+		@include font-scale(base);
+	}
+	&--bulleted{
+		@extend .list;
+		& > li{
+			display: table-row;
+			&::before{
+				content: "\2022";
+				color: palette(brand);
+				@include font-scale(md);
+				position: relative;
+				@include scut-padding(n spacer(xxs) n n);
+				display: table-cell;
+			}	
+		}
+	}
+	&--selectable{
+		@extend .list--bulleted;
+		& > li > a{
+			border-bottom: 1px solid palette(brand);
+			@include scut-selected(true){
+				color: palette(brand);
+			}
+		}
+	}
+	&--nested{
+		@extend .list--bulleted;
+	}
+}
+
+.secondary-list{
+	@include scut-margin(n n spacer(sm) n);
+}
+
+.secondary-list > .list--bulleted{
+	@include font-scale(xs, $font-oxygen);
+	& > li{
+		&::before{
+			@include font-scale(sm, $font-oxygen);
+		}	
 	}
 }
 

@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////
+//  services overview                                              	          //
+////////////////////////////////////////////////////////////////////////////////
+
+.services-overview{
+	@extend .small-12, .columns;
+	@include breakpoint(large){
+		@include scut-margin(n n spacer(lg) n);
+	}
+	&__main{
+		@extend .small-12, .large-8, .columns;
+	}
+	&__aside{
+		@include show-for(large);
+		@extend .large-4, .columns;
+	}
+}

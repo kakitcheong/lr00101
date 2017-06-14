@@ -1,0 +1,26 @@
+{
+  "name": "jquery-scrollspy",
+  "homepage": "https://github.com/sxalexander/jquery-scrollspy/",
+  "description": "scrollspy is a simple jQuery plugin for firing events based on where the user has scrolled to in a page.",
+  "main": "jquery-scrollspy.min.js",
+  "keywords": [
+    "scrolling",
+    "scroll"
+  ],
+  "license": "MIT",
+  "ignore": [],
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  },
+  "devDependencies": {},
+  "_release": "801a6039e3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "801a6039e3178a62110e66115014e30aebfe9e80"
+  },
+  "_source": "https://github.com/softwarespot/jquery-scrollspy.git",
+  "_target": "*",
+  "_originalSource": "jquery-scrollspy-softwarespot",
+  "_direct": true
+}
