@@ -16,18 +16,20 @@
 	}
 	&__statement{
 		&--fixed{
-			@extend .small-12, .columns;
+			// @extend .small-12, .columns;
 			@include hide-for-only(small);
 			max-width: rem-calc(550px);
-			@include scut-fixed(50% n n n);
-			@include scut-margin(n n n 0.5rem);
+			@include scut-fixed(55% n n n);
+			@include scut-margin(n n n spacer(xs)*1.25);
 			@include breakpoint(xlarge){
 				@include scut-fixed(60% n n n);
+				@include scut-margin(n n n spacer(lg)*1.35);
 			}
 		}
 		&--mobile{
 			@include show-for-only(small);
-			@include scut-padding($padding__mobile--lr 0.8rem);
+			@include grid-col(12);
+			@include scut-padding(0.8rem n);
 		}
 	}
 }

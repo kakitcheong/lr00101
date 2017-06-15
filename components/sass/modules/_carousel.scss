@@ -3,15 +3,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .carousel{
-	@extend .small-12;
+	@include grid-col(12, 0);
+	@include breakpoint(medium){
+		@include grid-col-size(6);
+	}
+	@include breakpoint(large){
+		@include grid-col-size(12);
+	}
 	&__img{
 		@extend %bg__img;
 		padding-top: 62.5%;
 		@include breakpoint(large down){
 			@include scut-margin(n n spacer(xs) n);	
-		}
-		@include breakpoint(medium){
-			padding-top: 38%;	
 		}
 		@include breakpoint(large){
 			padding-top: 42%;	
@@ -20,22 +23,29 @@
 	&__content{
 		display: none;
 	}
-	&__display{
-		@include breakpoint(medium down){
-			padding-left: $padding__mobile--lr !important;
-			padding-right: $padding__mobile--lr !important;	
+	&__display-outter-wrap{
+		//@extend .small-12, .medium-10, .large-push-2, .large-9, .xlarge-push-3, .xlarge-8;
+		@include grid-col(12);
+		@include grid-col-end;
+		position: relative;
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+		}
+		@include breakpoint(large){
+			@include grid-col-off(2);
+			@include grid-col-size(10);
+			@include scut-margin(spacer(xlg)*-1 n n n);	
 		}
 	}
-	&__display-outter-wrap{
-		position: relative;
-		@extend .small-12, .medium-10, .large-push-2, .large-9, .xlarge-push-3, .xlarge-8;
+	&__display{
 		@include breakpoint(large){
-			@include scut-margin(spacer(xlg)*-1 n n n);	
+			background-color: palette(grey, light);
+			@include scut-padding(spacer(sm) spacer(md));
 		}
 	}
 	&__nav{
 		@include show-for(large);
-		@include scut-absolute(spacer(md)*-1.1 0 n n);
+		@include scut-absolute(spacer(md)*-1.1 1.5625rem n n);
 		@extend .menu;
 		//z-index: -1;
 		li{
@@ -64,12 +74,6 @@
 			& > a{
 				@include scut-padding(0);
 			}
-		}
-	}
-	&__display{
-		@include breakpoint(large){
-			background-color: palette(grey, light);
-			@include scut-padding(spacer(sm) spacer(md));
 		}
 	}
 }

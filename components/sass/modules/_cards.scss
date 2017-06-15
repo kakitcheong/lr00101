@@ -15,7 +15,7 @@
 		position: relative;
 		min-height: rem-calc(180px);
 		background-color: $white;
-		@include scut-padding(spacer(md)*0.95 spacer(md));
+		@include scut-padding(spacer(sm)*0.95 spacer(sm));
 		border: 1px solid palette(grey, dark);
 		@include transition(all 0.5s cubic-bezier(.55,.085,0,.99));
 		@include scut-selected(true){
@@ -24,12 +24,15 @@
 			color: $white;
 		}
 		@include breakpoint(medium){
-			min-height: rem-calc(260px);	
+			min-height: rem-calc(220px);
+			@include scut-padding(spacer(md)*0.95 spacer(md));	
+		}
+		@include breakpoint(large){
+			min-height: rem-calc(260px);
 		}
 	}
 	&__link{
-		//display: absolute;
-		@include scut-absolute(n n spacer(md)*0.95 spacer(md));
+		@include scut-absolute(n n spacer(sm)*0.95 spacer(sm));
 		@include font-scale(xs, $font-oxygen);
 		font-weight: 700;
 		text-transform: uppercase;
@@ -38,6 +41,9 @@
 		border-bottom: 1px solid palette(grey, dark);
 		@include scut-selected(true){
 			color: $white;
+		}
+		@include breakpoint(medium){
+			@include scut-absolute(n n spacer(md)*0.95 spacer(md));
 		}
 	}
 }

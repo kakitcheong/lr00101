@@ -9,10 +9,12 @@
 		@include scut-padding(spacer(xlg) n);
 	}
 	&__grid{
-		@extend .large-12, .columns;
+		//@extend .large-12, .columns;
+		@include grid-col(12, 0);
 	}
 	&__row{
-		@extend .row, .collapse;
+		@include grid-row();
+		overflow: visible;
 		&::before,
 		&::after{
 			content: "";
@@ -27,16 +29,23 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .blocks{
-	@extend .large-6, .columns;
+	//@extend .large-6, .columns;
+	@include grid-col(6, 0);
 	height: rem-calc(200px);
 	&__single{
-		@extend .large-6, .columns;
+		//@extend .large-6, .columns;
+		@include grid-col(6);
 		min-height: rem-calc(200px);
 		&--rt{
-			@extend .blocks__single, .large-offset-6;
+			//@extend .blocks__single, .large-offset-6;
+			@extend .blocks__single;
+			@include grid-col-off(6);
 		}
 		&--lt{
-			@extend .blocks__single, .large-6, .end;
+			//@extend .blocks__single, .large-6, .end;
+			@extend .blocks__single;
+			@include grid-col(6);
+			@include grid-col-end;
 		}
 	}
 }

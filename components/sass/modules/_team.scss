@@ -3,24 +3,49 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .team-overview{
-	@include scut-margin(spacer(md) n);
-	@include breakpoint(large){
-		@include scut-margin(spacer(lg) n);
+	@extend %section-spacer;
+	&__wrap{
+		@include grid-row;
 	}
 	&__profile{
-		@extend .medium-6, .large-offset-3, .large-6, .columns;
+		//@extend .medium-6, .large-offset-3, .large-6, .columns;
 		@include hide-for-only(small);
+		@include breakpoint(medium){
+			@include grid-col(8);
+			//@include grid-col-off(2);
+			//@include grid-col-end;
+		}
+		@include breakpoint(large){
+			@include grid-col-size(6);
+			@include grid-col-off(3);
+		}
+		&--omega{
+			@extend .team-overview__profile;
+			@include grid-col-off(2);
+			@include grid-col-end;
+			@include breakpoint(large){
+				@include grid-col-off(3);
+			}
+		}
 	}
 	.section-opening{
-		@include hide-for-only(medium);
+		//@include hide-for-only(medium);
 	}
 }
 
 .profile{
 	@include scut-padding(n n spacer(lg) n);
+	@include breakpoint(medium){
+		@include scut-padding(n n spacer(xlg) n);
+	}
+	&__wrap{
+		@include grid-row(nest);
+	}
 	&__img{
-		@extend .medium-12, .large-4, .columns, %bg__img;
+		//@extend .medium-12, .large-4, .columns, %bg__img;
+		@include grid-col(12);
 		@include breakpoint(medium){
+			@include grid-col-size(4);
 			height: rem-calc(180px);
 		}
 		@include breakpoint(large){
@@ -34,7 +59,11 @@
 		}
 	}
 	&__content{
-		@extend .medium-12, .large-8, .columns;
+		//@extend .medium-12, .large-8, .columns;
+		@include grid-col(12);
+		@include breakpoint(medium){
+			@include grid-col-size(8);	
+		}
 	}
 	&__title-wrap{
 		@include breakpoint(medium){
@@ -74,12 +103,19 @@
 
 .team-grid{
 	&__item{
-		@extend .small-12, .medium-6, .large-offset-1, .large-5, .columns;
+		//@extend .small-12, .medium-6, .large-offset-1, .large-5, .columns;
+		@include grid-col(12);
 		&:last-child{
-			@extend .end;
+			//@extend .end;
+			@include grid-col-end;
 		}
 		@include scut-margin(n n spacer(md) n);
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+		}
 		@include breakpoint(large){
+			@include grid-col-size(5);
+			@include grid-col-off(1);
 			@include scut-margin(n n spacer(lg) n);	
 		}
 	}
@@ -103,24 +139,50 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .profile-single{
-	@include scut-margin(n n spacer(lg) n);
-	@include breakpoint(large){
-		@include scut-margin(spacer(md) n spacer(lg) n);
-	}
+	@include scut-margin(spacer(md) n spacer(lg) n);
 	&__col{
 		&--lg{
-			@extend .small-12, .medium-8, .large-5, .column;
+			@include grid-col(12);
+			@include breakpoint(medium){
+				@include grid-col-size(8);
+			}
+			@include breakpoint(large){
+				@include grid-col-size(5);
+			}			
 		}
 		&--sm{
-			@extend .small-12, .medium-4, .large-5, .large-offset-1, .end, .column;
+			@include grid-col(12);
+			@include breakpoint(medium){
+				@include grid-col-size(4);
+			}
+			@include breakpoint(large){
+				@include grid-col-size(5);
+				@include grid-col-off(1);	
+				@include grid-col-end;
+			}
+		}
+		&--nested{
+			@include grid-col(12);
+			@include breakpoint(large){
+				@include grid-col(8);
+			}
+			&:last-child{
+				@include breakpoint(large){
+					@include grid-col(4);
+				}	
+			}
 		}
 	}
 	&__img{
+		@include show-for(medium);
+		height: rem-calc(180px);
+		@include scut-margin(n n spacer(md) n);
 		@include breakpoint(large){
 			height: rem-calc(320px);
 		}
 	}
 	&__info{
+		@include scut-margin(n n spacer(sm) n);
 		@include breakpoint(large){
 			@include scut-margin(n n spacer(md) n);
 		}

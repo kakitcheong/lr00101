@@ -37,6 +37,7 @@ $offcanvas-full-screen-side: left;
 	&__content{
 		@include scut-fixed(0 0 n 0);
 		border-bottom: 1px solid palette(grey, light);
+		z-index: 10;
 	}
 	&__menu{
 		@extend %offcanvas-full-screen-menu;
@@ -53,6 +54,7 @@ $offcanvas-full-screen-side: left;
 }
 
 .header-nav{
+	@include scut-padding(n 0);
 	&--mobile{
 		@extend .top-bar;
 		background-color: $color__transparent;
@@ -71,7 +73,13 @@ $offcanvas-full-screen-side: left;
 			z-index: 11;
 		}
 	}
-
+	&__brand{
+		a{
+			@include scut-selected(true){
+				color: palette(grey, dark);
+			}
+		}
+	}
 	&__wrap{
 		&--right{
 			@extend .top-bar-right;
@@ -96,5 +104,9 @@ $offcanvas-full-screen-side: left;
 
 .sticky-nav{
 	@extend .sticky;
-	width: 100%;	
+	width: 100%;
+	background-color: $white;
+	&__wrap{
+		@include grid-col-row;
+	}
 }

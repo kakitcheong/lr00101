@@ -25,7 +25,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- header mobile -->
         <header class="header--mobile">
             <div id="mobile-nav" class="mobile-nav__container" data-off-canvas data-transition="overlap">
                 <div class="mobile-nav__inner-wrap">
@@ -46,7 +45,7 @@
             <!-- /.mobile-nav__container -->
 
             <div class="mobile-nav__content in-body" data-off-canvas-content>
-                <div class="header-nav--mobile">
+                <div class="header-nav--mobile ">
                     <div class="header-nav--mobile__title">
                         <strong class="nav--mobile__brand">Luís Reigadas</strong>
                     </div>
@@ -61,38 +60,41 @@
         </header>
         <!-- /.header--mobile -->
         
-        <!-- header desktop -->
-        <header class="header--desktop" data-sticky-container>
-            <nav class="sticky-nav sticky" data-sticky data-margin-top="0">
-                <div class="row column">
-                    <div class="header-nav" >
-                        <div class="header-nav__title">
-                            <strong class="header-nav__brand">Luís Reigadas</strong>   
+        <header class="header--desktop">
+            <div class="sticky-nav__container" data-sticky-container>
+                <nav class="sticky-nav sticky" data-sticky data-margin-top="0">
+                    <div class="sticky-nav__wrap">
+                        <div class="header-nav">
+                            <div class="header-nav__title">
+                                <strong class="header-nav__brand"><a href="#">Luís Reigadas</a></strong>   
+                            </div>
+                            <!-- /.header-nav__title -->
+                            <div class="header-nav__wrap--right">
+                                <ul class="h-menu">
+                                    <li class="active"><a href="#">About Us</a></li>
+                                    <li><a href="#">Area of Practice</a></li>
+                                    <li><a href="#">People</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Search&nbsp;<span class="icon icon_search"></span></a></li>
+                                </ul>   
+                            </div>
+                            <!-- /.header-nav__wrap--right -->
                         </div>
-                        <!-- /.header-nav__title -->
-                        <div class="header-nav__wrap--right">
-                            <ul class="h-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Area of Practice</a></li>
-                                <li><a href="#">People</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Search&nbsp;<span class="icon icon_search"></span></a></li>
-                            </ul>   
-                        </div>
-                        <!-- /.header-nav__wrap--right -->
+                        <!-- /.header-nav -->
                     </div>
-                    <!-- /.header-nav -->
-                </div>
-                <!-- /.row -->
-            </nav>
+                    <!-- /.sticky-nav__wrap -->
+                </nav>    
+            </div>
+            <!-- /.sticky-nav__container -->
         </header>
+        <!-- /.header--desktop -->
 
         <div class="print-logo"><h1>Luis Reigadas Advogado e Notario Privado</h1></div>
         <!-- /.print-logo -->
 
         <section class="page-opening">
-            <div class="row small-collapse medium-collapse large-uncollapse">
+            <div class="page-opening__wrap">
                 <div class="section-opening">
                     <div class="section-opening__title-secondary">
                         <strong class="heading__sm">
@@ -112,7 +114,7 @@
                 <!-- /.section-opening -->
 
                 <div class="cover">
-                    <div class="row collapse">
+                    <div class="cover__wrap">
                         <div class="cover__img" style="background-image: url('https://unsplash.it/g/1280/720');">   
                         </div>
                         <!-- /.cover__img -->
@@ -123,11 +125,11 @@
                         </div>
                         <!-- /.cover__txt -->      
                     </div>
-                    <!-- /.row collapse -->
+                    <!-- /.cover__wrap -->
                 </div>
                 <!-- /.cover -->    
             </div>
-            <!-- /.row -->
+            <!-- /.page-opening__wrap -->
         </section>
         <!-- /.page-opening -->
 

@@ -3,15 +3,25 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .services-overview{
-	@extend .small-12, .columns;
+	@include grid-col(12);
+	@include breakpoint(small only){
+		@include scut-padding(spacer(md) n);
+		border-top: 1px solid palette(grey, light);		
+	}
+	@include breakpoint(medium){
+		@include scut-margin(n n spacer(md) n);
+	}
 	@include breakpoint(large){
 		@include scut-margin(n n spacer(lg) n);
 	}
 	&__main{
-		@extend .small-12, .large-8, .columns;
+		@include grid-col(12);
+		@include breakpoint(large){
+			@include grid-col-size(8);
+		}
 	}
 	&__aside{
 		@include show-for(large);
-		@extend .large-4, .columns;
+		@include grid-col(4);
 	}
 }

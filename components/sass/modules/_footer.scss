@@ -3,30 +3,40 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .footer{
-	@extend .expanded, .row;
+	@include grid-row(null, null, expand, true, $grid-column-gutter);
 	background-color: palette(grey);
 	@include breakpoint(small only){
 		@include scut-padding(spacer(xs) n);	
 	}
 	@include scut-padding(spacer(lg) n);
 	&__inner{
-		@extend .row;
+		@include grid-row;
 	}
 	&__col{
-		@extend .small-12, .medium-6, .large-3, .columns;
+		@include grid-col(12);
 		@include breakpoint(small only){
 			@include scut-padding(spacer(xxs) n spacer(xs) n);
 			border-bottom: $el__border;
 		}
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+		}
+		@include breakpoint(large){
+			@include grid-col-size(3);
+		}
 		&--omega{
-			@extend .footer__col, .large-offset-3, .end;
+			@extend .footer__col;
+			@include grid-col-end;
 			border-bottom: none;
+			@include breakpoint(large){
+				@include grid-col-off(3);
+			}
 		}
 	}
 	&__text{
 		&--omega{
 			@include breakpoint(large){
-				float: right;
+         		float: right;
 			}
 		}
 	}

@@ -3,7 +3,7 @@ This document contains elements used in the application
 
 author: kc-slg
 created on: 31/05/2017
-last update: 31/05/2017
+last update: 14/06/2017
 ===================================================== ***/
 
 // contents ------------
@@ -29,14 +29,9 @@ last update: 31/05/2017
 }
 
 .page-opening{
-	//@extend .row, .small-collapse, .large-uncollapse;
-	@include scut-margin(spacer(md) n);
-	//background-color: $white;
-	@include breakpoint(large){
-		@include scut-margin(spacer(xlg) n);
-	}
+	@extend %section-spacer--alpha;
 	&__wrap{
-		//@extend .row, .small-collapse, .medium-collapse, .large-uncollapse;
+		@include grid-row;
 	}
 }
 
@@ -47,15 +42,15 @@ last update: 31/05/2017
 		}
 	}
 	&__single{
-		@extend .row, .column;
+		@include grid-col-row;
 	}
 	&__full{
-		@extend .row, .expanded;
+		//@extend .row, .expanded;
+		@include grid-row(null, null, expand, true, $grid-column-gutter);
 	}
 }
 
 .parallax-wrap{ 
-	// min-height: 2000px; // dev
 	@extend %bg__img, %parallax-window;
 }
 
@@ -66,117 +61,178 @@ last update: 31/05/2017
 }
 
 .aside{
-	@extend .medium-3, .columns;
+	//@extend .medium-3, .columns;
 	@include show-for(medium); 
+	@include grid-col(3);
 }
 
 .main{
 	&--with-aside{
-		@extend .small-12, .medium-9, .large-8, .large-offset-1, .columns;
+		//@extend .small-12, .medium-9, .large-8, .large-offset-1, .columns;
+		@include grid-col(12);
+		@include breakpoint(medium){
+			@include grid-col-size(9);
+		}
+		@include breakpoint(large){
+			@include grid-col-off(1);
+			@include grid-col-size(8);
+		}
 		@include scut-margin(n n spacer(lg) n);	
+	}
+}
+
+%section-spacer{
+	@include scut-margin(n n spacer(md) n);
+	@include breakpoint(medium){
+		@include scut-margin(n n spacer(xxlg) n);
+	}
+	@include breakpoint(large){
+			@include scut-margin(n n spacer(lg) n);
+		}
+	&--alpha{
+		@include scut-margin(spacer(md) n);
+		@include breakpoint(medium){
+			@include scut-margin(spacer(xxlg) n);
+		}
+		@include breakpoint(large){
+			@include scut-margin(spacer(lg) n);
+		}	
 	}
 }
 
 /*** 
 layout variation one 
 
-component description:
-image span 4 columns on left with text over 4 column on right with 1 column offset
 ***/
+
+%unit-grid{
+	@include grid-row;
+	@include breakpoint(large){
+		@include grid-row(12, null, rem-calc(800px), true, $grid-column-gutter);	
+	}
+	@include breakpoint(xlarge){
+		@include grid-row(12, null, rem-calc(1000px), true, $grid-column-gutter);	
+	}
+}
+
 .layout-one{
-	@include scut-margin(n n spacer(xlg) n);
+	@include scut-margin(n n spacer(md) n);
+	@include breakpoint(large){
+		@include scut-margin(n n spacer(xlg) n);	
+	}
 	&__wrap{
-		@extend .row, .small-collapse, .medium-uncollapse;
-		//@include scut-margin(spacer(md) n);
+		@extend %unit-grid;
 	}
 	&__img{
-		@extend %bg__img, .small-12, .medium-6, .large-4, .large-offset-1, .columns;
+		@extend %bg__img;
+		@include grid-col(12, 0);
 		padding-top: 62.5%;
-		@include breakpoint(medium){
-			padding-top: 32.5%;
+		@include breakpoint(small only){
+			@include scut-margin(n n spacer(xs) n);
 		}
-		@include breakpoint(large down){
-			@include scut-margin(n n spacer(xs) n);	
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+			padding-top: 31.25%;
 		}
 		@include breakpoint(large){
+			@include grid-col-size(4);
 			padding-top: 22.5%;
 		}
 	}
 	&__txt{
-		@extend .small-12, .medium-6, .large-4, .large-offset-2, .end, .columns;
-		@include breakpoint(small only){
-			padding-left: $padding__mobile--lr !important;
-			padding-right: $padding__mobile--lr !important;	
+		@include grid-col(12);
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+		}
+		@include breakpoint(large){
+			@include grid-col-off(2);
+			@include grid-col-size(6);
+			@include grid-col-end;
 		}
 	}
 }
+
+/*** 
+layout variation two
+
+***/
  
 .layout-two{
 	@include scut-margin(n n spacer(xlg) n);
 	&__wrap{
-		@extend .row, .small-collapse, .medium-uncollapse;
+		@extend %unit-grid;
 	}
 	&__txt{
-		@extend .small-12, .medium-6, .large-4, .large-offset-2, .columns;
-		@include breakpoint(small only){
-			padding-left: $padding__mobile--lr !important;
-			padding-right: $padding__mobile--lr !important;	
-		}	
-	}
-	&__img{
-		@extend .medium-6, .large-3, .large-offset-1, .end, .columns;
-		@include hide-for-only(small);
+		@include grid-col(12);
 		@include breakpoint(medium){
-			padding-top: 32.5%;
-		}
-		@include breakpoint(large down){
-			@include scut-margin(n n spacer(xs) n);	
+			@include grid-col-size(6);
 		}
 		@include breakpoint(large){
+			@include grid-col-size(6);
+		}
+	}
+	&__img{
+		@include hide-for-only(small);
+		@include breakpoint(medium){
+			@include grid-col(6);
+			padding-top: 31.25%;
+		}
+		@include breakpoint(large){
+			@include grid-col(3);
+			@include grid-col-off(1);
+			@include grid-col-end;
 			padding-top: 37.5%;
 		}	
 	}
 }
 
+/*** 
+layout variation three 
+
+***/
+
 .layout-three{
 	@include scut-margin(n n spacer(xlg) n);
 	&__wrap{
-		@extend .row, .small-collapse, .medium-uncollapse;
+		@extend %unit-grid;
 	}
 	&__img{
-		@extend .small-12, .medium-6, .large-5, .large-offset-1, .columns;
+		@include grid-col(12);
 		padding-top: 62.5%;
-		@include breakpoint(medium){
-			padding-top: 62.5%;
+		@include breakpoint(small only){
+			@include scut-margin(n n spacer(xs) n);
 		}
-		@include breakpoint(large down){
-			@include scut-margin(n n spacer(xs) n);	
+		@include breakpoint(medium){
+			@include grid-col-size(6);
+			padding-top: 31.25%;
 		}
 		@include breakpoint(large){
-			padding-top: 27.5%;
+			@include grid-col-size(4);
+			padding-top: 22.5%;
 		}	
 	}
 	&__txt{
-		@extend .small-12, .medium-6, .large-4, .large-offset-1, .end, .columns;
-		@include breakpoint(small only){
-			padding-left: $padding__mobile--lr !important;
-			padding-right: $padding__mobile--lr !important;	
-		}	
+		@include grid-col(12);
+		@include breakpoint(medium){
+			@include grid-col(6);	
+		}
+		@include breakpoint(large){
+			@include grid-col-off(2);
+			@include grid-col-size(6);
+			@include grid-col-end;
+		}
 	}
 }
 
 .section-title{
-	@extend .small-12, .large-offset-1, .large-10, .end, .columns;
+	@include grid-col(12);
 	color: palette(brand);
 	@include font-scale(base, $font-oxygen);
 	text-transform: uppercase;
 	letter-spacing: rem-calc(1px);
 	@include scut-margin(n n spacer(xs) n);
-	@include breakpoint(medium down){
-		padding-left: $padding__mobile--lr !important;
-		padding-right: $padding__mobile--lr !important;	
-	}
 	@include breakpoint(large){
+		@include grid-col-collapse();
 		@include scut-margin(n n spacer(md) n);
 	}
 }
@@ -236,6 +292,11 @@ image span 4 columns on left with text over 4 column on right with 1 column offs
 				color: palette(brand);
 			}
 		}
+	}
+	& .active > a{
+		background-color: $color__transparent;
+		color: palette(brand);
+		//border-bottom: 1px solid palette(brand);
 	}
 }
 
@@ -381,6 +442,10 @@ image span 4 columns on left with text over 4 column on right with 1 column offs
 
 /*** google-map ***/
 .map--single{
-	@extend .small-12;
-	height: rem-calc(400px);	
+	//@extend .small-12;
+	@include grid-col(12, 0);
+	height: rem-calc(280px);
+	@include breakpoint(large){
+		height: rem-calc(320px);
+	}	
 }

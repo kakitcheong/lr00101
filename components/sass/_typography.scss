@@ -3,7 +3,7 @@ This document contains all typographic variables used in the application
 
 author: kc-slg
 created on: 29/05/2017
-last update: 31/05/2017
+last update: 14/06/2017
 ===================================================== ***/
 
 // contents ------------
@@ -300,7 +300,7 @@ h2{
 	@include font-scale(sm-md, $font-oxygen);
 	font-weight: 700;
 	color: palette(grey, dark);
-	text-align: justify;
+	//text-align: justify;
 	@include scut-margin(n n spacer(lg) n); 
 	&::before{
 		content: '"';
@@ -352,4 +352,9 @@ h2{
 	@include font-scale(xxs, $font-oxygen);
 	color: palette(grey, base);
 	text-transform: uppercase;
+}
+
+/*** for development purpose only ***/
+.dummy{
+	color: lighten(red, 20%);
 }

@@ -3,7 +3,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .cover{
-	@extend .small-12, .large-9, .columns;
+	@include grid-col(12, 0);
+	@include breakpoint(large){
+		@include grid-col-size(9);
+	}
+	&__wrap{
+		@include grid-row(nest);
+	}
 	&__img{
 		@extend %bg__img;
 		padding-top: 62.5%;
@@ -18,12 +24,14 @@
 		}
 	}
 	&__txt{
-		@extend .small-12, .medium-10, .large-push-2, .large-9, .xlarge-push-3, .xlarge-8;
-		@include breakpoint(medium down){
-			padding-left: $padding__mobile--lr !important;
-			padding-right: $padding__mobile--lr !important;	
+		@include grid-col(12);
+		@include breakpoint(medium){
+			@include grid-col-size(10);
+			@include grid-col-end;
 		}
 		@include breakpoint(large){
+			@include grid-col-off(2);
+			@include grid-col-size(9);
 			background-color: palette(grey, light);
 			@include scut-padding(spacer(sm) spacer(md));
 			@include scut-margin(spacer(xlg)*-1 n n n);	

@@ -3,21 +3,34 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .journal-overview{
-	@include scut-margin(spacer(md) n);
-	@include breakpoint(large){
-		@include scut-margin(spacer(lg) n);
+	@extend %section-spacer;
+	&__wrap{
+		@include grid-row;
+	}
+	.section-opening{
+		@include scut-margin(n n spacer(xxs) n);
 	}
 	&__card{
-		@extend .small-12, .medium-4, .large-4, .columns;
+		//@extend .small-12, .medium-4, .large-4, .columns;
+		@include grid-col(12);
 		height: 100%;
 		@include breakpoint(small only){
 			@include scut-margin(n n spacer(sm) n);
 		}
+		@include breakpoint(medium){
+			@include grid-col-size(4);
+		}
 		&--alpha{
-			@extend .journal-overview__card, .large-offset-1;
+			//@extend .journal-overview__card, .large-offset-1;
+			@extend .journal-overview__card;
+			@include breakpoint(large){
+				@include grid-col-off(1);
+			}
 		}
 		&--omega{
-			@extend .journal-overview__card, .end;
+			//@extend .journal-overview__card, .end;
+			@extend .journal-overview__card;
+			@include grid-col-end;
 		}
 	}
 }
