@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////////////////////
+//  contact                                               					  //
+////////////////////////////////////////////////////////////////////////////////
+
+.contact-location{
+	@include grid-col(12);
+	@include grid-col-collapse;
+	@include scut-margin(n n spacer(md) n);
+	@include breakpoint(large){
+		@include grid-col-size(8);
+	}
+	@include breakpoint(xlarge){
+		@include grid-col-size(6);
+	}
+	&:last-child{
+		@include grid-col-end;
+	}
+	&__map{
+		//@include grid-col(12);
+		height: rem-calc(160px);
+		@include scut-margin(n n spacer(xs) n);
+		@include breakpoint(medium){
+			height: rem-calc(280px);
+		}
+	}
+	&__info{
+		&--lg{
+			@include grid-col(12);
+			@include breakpoint(medium){
+				@include grid-col-size(8);
+			}
+		}
+		&--sm{
+			@include grid-col(12);
+			@include breakpoint(medium){
+				@include grid-col-size(4);
+			}
+		}
+	}
+}
+
+.contact-form{
+	@include grid-col(12);
+}

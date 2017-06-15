@@ -1,6 +1,6 @@
 /*** header nav mobile ***/
-$('.header-nav--mobile__toggle').on('click', function(){
-	$(this).toggleClass('menu--mobile__is-open');
+$('.toggle__btn').on('click', function(){
+	$('.header-nav--mobile__toggle').toggleClass('menu--mobile__is-open');
 });
 
 $.fn.animateEach = function(className, callback){

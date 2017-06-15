@@ -71,19 +71,28 @@ var countUp = function(){
 
 /*** in viewport check ***/
 var viewportCheck = function(){
-	$('.big-number').viewportChecker({
-		classToAdd: 'count',
-		classToAddForFullView: 'full-visible',
-		callbackFunction: function(elem, action){ countUp(); },
-	});
+  $('.big-number').viewportChecker({
+  	classToAdd: 'count',
+  	classToAddForFullView: 'full-visible',
+  	callbackFunction: function(elem, action){ countUp(); },
+  });
+}
+
+/*** grayscale img ***/
+var grayScale = function(){
+  $('.gray-img').hover(function(){
+    console.log("Hovering");
+    $(this).toggleClass('grayscale-off');  
+  });
 }
 
 $(document).ready(function(){
+  //grayScale();
 	viewportCheck();
 });
 /*** header nav mobile ***/
-$('.header-nav--mobile__toggle').on('click', function(){
-	$(this).toggleClass('menu--mobile__is-open');
+$('.toggle__btn').on('click', function(){
+	$('.header-nav--mobile__toggle').toggleClass('menu--mobile__is-open');
 });
 
 $.fn.animateEach = function(className, callback){

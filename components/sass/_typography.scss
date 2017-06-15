@@ -346,6 +346,13 @@ h2{
 }
 .high-light{
 	color: palette(brand);
+	&--sm{
+		@extend .high-light;
+		@include font-scale(xxs, $font-oxygen);	
+		text-transform: uppercase;
+		letter-spacing: rem-calc(1px);
+		@include scut-margin(n n spacer(sm) n);
+	}
 }
 
 .small{

@@ -14,9 +14,6 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Oxygen:400,700" rel="stylesheet">
-
-        <!-- Slick Carousel -->
-        <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
         
         <link rel="stylesheet" href="stylesheets/style.css"> 
     </head>
@@ -24,6 +21,20 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <div class="full reveal" id="full-screen-search" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="site-search__wrap">
+                <form class="site-search__form" method="get" id="searchform" action="">
+                    <input type="search" class="site-search__input" autocomplete="off" value name="s" id="s" placeholder="Start Typing Here">
+                    <input type="submit" value="Search" id="searchsubmit" class="hide">
+                </form>
+                <button class="site-search__close" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>     
+            </div>
+            <!-- /.site-search -->
+        </div>
+        <!-- /.reveal -->
 
         <header class="header--mobile">
             <div id="mobile-nav" class="mobile-nav__container" data-off-canvas data-transition="overlap">
@@ -35,7 +46,13 @@
                             <li><a href="#">People</a></li>
                             <li><a href="#">News</a></li>
                             <li><a href="#">Contact</a></li>
-                            <li><a href="#">Search</a></li>
+                            <li>
+                                <form class="site-search__form" method="get" id="searchform" action="">
+                                    <input type="search" class="site-search__input" autocomplete="off" value name="s" id="s" placeholder="Search">
+                                    <input type="submit" value="Search" id="searchsubmit" class="hide">
+                                    <span class="icon icon_search site-search__icon"></span>
+                                </form>
+                            </li>
                         </ul>
                         <!-- /.mobile-nav__menu -->
                     </nav>
@@ -45,7 +62,7 @@
             <!-- /.mobile-nav__container -->
 
             <div class="mobile-nav__content in-body" data-off-canvas-content>
-                <div class="header-nav--mobile ">
+                <div class="header-nav--mobile">
                     <div class="header-nav--mobile__title">
                         <strong class="nav--mobile__brand">Luís Reigadas</strong>
                     </div>
@@ -55,7 +72,7 @@
             </div>
             <!-- /.mobile-nav__content -->
             
-            <button class="header-nav--mobile__toggle in-body" type="button" data-toggle="mobile-nav">
+            <button class="header-nav--mobile__toggle in-body" type="button" data-toggle="mobile-nav"><span class="toggle__btn">&nbsp;</span>
             </button>
         </header>
         <!-- /.header--mobile -->
@@ -668,7 +685,7 @@
             <div class="footer__inner">
                 <div class="footer__col">
                     <p class="paragraph--reversed--sm">
-                        <span class="high-light">Contact Us</span><br>
+                        <span class="high-light--sm">Contact Us</span><br>
                         phone — <br class="show-for-medium">
                         +853 2832 2093 <br><br class="show-for-medium"> 
 
@@ -680,10 +697,10 @@
                 </div>
                 <div class="footer__col">
                     <p class="paragraph--reversed--sm">
-                        <span class="high-light">Address</span><br>
+                        <span class="high-light--sm">Address</span><br>
                         Travessa da Misericordia, no.6 -3 A, Macau<br><br class="show-for-medium">
                         
-                        <span class="high-light">Office Hours</span><br>
+                        <span class="high-light--sm">Office Hours</span><br>
                         Monday — Friday<br>
                         9:30 AM — 6:30 PM    
                     </p>

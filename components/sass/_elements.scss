@@ -70,6 +70,7 @@ last update: 14/06/2017
 	&--with-aside{
 		//@extend .small-12, .medium-9, .large-8, .large-offset-1, .columns;
 		@include grid-col(12);
+		@include scut-margin(n n spacer(lg) n);
 		@include breakpoint(medium){
 			@include grid-col-size(9);
 		}
@@ -77,7 +78,13 @@ last update: 14/06/2017
 			@include grid-col-off(1);
 			@include grid-col-size(8);
 		}
-		@include scut-margin(n n spacer(lg) n);	
+		&--alt{
+			@extend .main--with-aside;
+			@include breakpoint(large){
+				@include grid-col-size(9);
+				@include grid-col-collapse;		
+			}
+		}
 	}
 }
 
@@ -283,6 +290,54 @@ layout variation three
 ////////////////////////////////////////////////////////////////////////////////
 //  ui elements                                                               //
 ////////////////////////////////////////////////////////////////////////////////
+.site-search{
+	&__wrap{
+		@include grid-row;
+		@include scut-margin(spacer(lg) n n n);
+	}
+	&__form{
+		@include grid-col(6);
+	}
+	&__input{
+		background: none;
+		width: 100%;
+		color: palette(grey);
+		height: auto;
+		@include scut-padding(spacer(sm) n spacer(xs) n);
+		border: none;
+		border-bottom: 1px solid palette(grey);
+		outline: none;
+		@include font-scale(lg);
+		@include box-shadow(none);
+		@include scut-selected(true){
+			@include box-shadow(none);
+			border: none;
+			border-bottom: 1px solid palette(grey);
+		}
+	}
+	&__close{
+		@extend .close-button;
+		top: 6rem;
+		right: 4rem;
+	}
+}
+
+.mobile-nav__menu{
+	.site-search__form{
+		@include scut-margin(spacer(lg) n n n);
+		width: 100%;
+	}
+	.site-search__input{
+		display: inline-block;
+		width: 80%;
+		@extend .site-search__input;
+		@include font-scale(sm, $font-oxygen);
+	}
+	.site-search__icon{
+		width: 20%;
+	}
+}
+
 .h-menu{
 	@extend .menu;
 	& > li{
